@@ -10,11 +10,6 @@ defmodule PtodosWeb.TodoController do
     render(conn, "index.html", todos: todos, changeset: changeset)
   end
 
-  def new(conn, _params) do
-    changeset = Todos.change_todo(%Todo{})
-    render(conn, "new.html", changeset: changeset)
-  end
-
   def create(conn, %{"todo" => todo_params}) do
     case Todos.create_todo(todo_params) do
       {:ok, _todo} ->

@@ -14,7 +14,6 @@
       <td><%= todo.title %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: todo_path(@conn, :show, todo), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Edit", to: todo_path(@conn, :edit, todo), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Delete", to: todo_path(@conn, :delete, todo), method: :delete, class: "btn btn-danger btn-xs" %></span>
       </td>
