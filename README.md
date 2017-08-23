@@ -1,5 +1,19 @@
-# Ptodos
+# team-todos
 
+This is (will be) a todo app featuring:
++ various todo lists with multiple possible users who can edit todos
++ view recently completed todos on the list
++ an archive of all completed todos on each list
++ CI with travis
++ websockets for alterations to todos so that the changes are live for all users viewing the list
++ time management (time estimates on each todo, and a "start", "stop", and "pause" to track how long the task took)
++ hosted on heroku
++ a better name
+
+
+### This is the whiteboard plan of the features of the app
+![Whiteboard plan](https://user-images.githubusercontent.com/22300773/29609471-3bdeb9d0-87ef-11e7-8c37-c8f489e81296.jpg)
+==================
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
