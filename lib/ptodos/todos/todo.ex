@@ -6,6 +6,7 @@ defmodule Ptodos.Todos.Todo do
 
   schema "todos" do
     field :title, :string
+    belongs_to :user, Ptodos.Users.User
 
     timestamps()
   end
