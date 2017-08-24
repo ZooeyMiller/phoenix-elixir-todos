@@ -55,6 +55,14 @@ defmodule Ptodos.Todos do
     |> Repo.insert()
   end
 
+  
+  def toggle_todo(id) do
+    todo = get_todo!(id)
+    %Ptodos.Todos.Todo{finished: finished} = todo
+    update_todo(todo, %{"finished" => !finished})
+  end
+
+
   @doc """
   Updates a todo.
 
@@ -68,6 +76,8 @@ defmodule Ptodos.Todos do
 
   """
   def update_todo(%Todo{} = todo, attrs) do
+    IO.inspect attrs
+
     todo
     |> Todo.changeset(attrs)
     |> Repo.update()

@@ -23,6 +23,12 @@ defmodule PtodosWeb.Router do
     resources "/todo", TodoController
   end
 
+  scope "/api", PtodosWeb do
+    pipe_through :api
+
+    put "/toggle/:id", TodoApiController, :toggle
+  end
+
   scope "/auth", PtodosWeb do
     pipe_through :browser
 

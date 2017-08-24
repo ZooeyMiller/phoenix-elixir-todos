@@ -6,6 +6,7 @@ defmodule Ptodos.Todos.Todo do
 
   schema "todos" do
     field :title, :string
+    field :finished, :boolean, default: false
     belongs_to :user, Ptodos.Users.User
 
     timestamps()
@@ -14,7 +15,7 @@ defmodule Ptodos.Todos.Todo do
   @doc false
   def changeset(%Todo{} = todo, attrs) do
     todo
-    |> cast(attrs, [:title, :user_id])
+    |> cast(attrs, [:title, :user_id, :finished])
     |> validate_required([:title, :user_id])
   end
 end
