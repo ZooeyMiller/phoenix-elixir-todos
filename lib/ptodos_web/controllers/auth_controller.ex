@@ -3,9 +3,8 @@ defmodule PtodosWeb.AuthController do
   plug Ueberauth
 
   alias Ptodos.Users
-  alias Ptodos.Users.User
 
-  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
+  def callback(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
     signin(conn, %{token: auth.credentials.token, email: auth.info.email, provider: "github"})
   end
 

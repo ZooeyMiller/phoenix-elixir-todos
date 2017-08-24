@@ -11,7 +11,7 @@ defmodule PtodosWeb.TodoController do
   end
 
   def create(conn, %{"todo" => todo_params}) do
-    case Todos.create_todo(todo_params) do
+    case Todos.create_todo(todo_params, conn.assigns.user) do
       {:ok, _todo} ->
         conn
         |> redirect(to: todo_path(conn, :index))

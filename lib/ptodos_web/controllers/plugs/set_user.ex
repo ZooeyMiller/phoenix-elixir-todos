@@ -1,9 +1,7 @@
 defmodule PtodosWeb.Plugs.SetUser do
   import Plug.Conn
-  import Phoenix.Controller
 
   alias Ptodos.Users
-  alias Ptodos.Users.User
 
   def init(_params) do
   end

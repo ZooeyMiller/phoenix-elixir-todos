@@ -49,8 +49,8 @@ defmodule Ptodos.Todos do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_todo(attrs \\ %{}) do
-    %Todo{}
+  def create_todo(attrs \\ %{}, user) do
+    Ecto.build_assoc(user, :todos)
     |> Todo.changeset(attrs)
     |> Repo.insert()
   end
