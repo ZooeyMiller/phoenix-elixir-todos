@@ -13,6 +13,21 @@ This is (will be) a todo app featuring:
 
 ### This is the whiteboard plan of the features of the app
 ![Whiteboard plan](https://user-images.githubusercontent.com/22300773/29609471-3bdeb9d0-87ef-11e7-8c37-c8f489e81296.jpg)
+
+
+### environment variables
+
+You will need to create a config.env file in the root of the project, inside you will need to put:
+
+```
+export GITHUB_SECRET=<your secret key here>
+export GITHUB_CLIENT_ID=<your client id here>
+```
+
+then before you run the code for the first time run `source config.env` in your terminal, and you'll be good to go!
+
+You'll need to generate your own client_id and client_secret on github.
+
 ==================
 To start your Phoenix server:
 

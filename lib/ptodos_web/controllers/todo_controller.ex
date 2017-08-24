@@ -11,7 +11,7 @@ defmodule PtodosWeb.TodoController do
   end
 
   def create(conn, %{"todo" => todo_params}) do
-    case Todos.create_todo(todo_params) do
+    case Todos.create_todo(todo_params, conn.assigns.user) do
       {:ok, _todo} ->
         conn
         |> redirect(to: todo_path(conn, :index))
@@ -30,7 +30,7 @@ defmodule PtodosWeb.TodoController do
     todo = Todos.get_todo!(id)
 
     case Todos.update_todo(todo, todo_params) do
-      {:ok, todo} ->
+      {:ok, _todo} ->
         conn
         |> put_flash(:info, "Todo updated successfully.")
         |> redirect(to: todo_path(conn, :index))

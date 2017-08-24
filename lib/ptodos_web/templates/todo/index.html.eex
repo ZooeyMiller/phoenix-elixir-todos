@@ -1,3 +1,10 @@
+
+<%= if @conn.assigns[:user] do %>
+    <%= link "Logout", to: auth_path(@conn, :signout) %>
+<% else %>
+    <%= link "Login with Github", to: auth_path(@conn, :request, "github") %>
+<% end %>
+
 <h2>Listing Todos</h2>
 
 <table class="table">
@@ -12,11 +19,12 @@
 <%= for todo <- @todos do %>
     <tr>
       <td><%= todo.title %></td>
-
+      <%= if @conn.assigns.user.id == todo.user_id do %>
       <td class="text-right">
         <span><%= link "Edit", to: todo_path(@conn, :edit, todo), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Delete", to: todo_path(@conn, :delete, todo), method: :delete, class: "btn btn-danger btn-xs" %></span>
       </td>
+      <% end %>
     </tr>
 <% end %>
   </tbody>
