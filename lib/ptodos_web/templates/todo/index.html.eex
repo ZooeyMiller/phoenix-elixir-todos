@@ -1,3 +1,10 @@
+
+<%= if @conn.assigns[:user] do %>
+    <%= link "Logout", to: auth_path(@conn, :signout) %>
+<% else %>
+    <%= link "Login with Github", to: auth_path(@conn, :request, "github") %>
+<% end %>
+
 <h2>Listing Todos</h2>
 
 <table class="table">

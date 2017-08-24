@@ -35,7 +35,7 @@ defmodule Ptodos.Users do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id), do: Repo.get(User, id)
 
   @doc """
   Creates a user.
@@ -88,6 +88,10 @@ defmodule Ptodos.Users do
   def delete_user(%User{} = user) do
     Repo.delete(user)
   end
+
+  def get_by_email(email), do: Repo.get_by(User, email: email)
+
+
 
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking user changes.
