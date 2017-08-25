@@ -29,6 +29,3 @@
 <% end %>
   </tbody>
 </table>
-<%= if @conn.assigns.user do %>
-<%= render "form.html", Map.put(assigns, :action, todo_path(@conn, :create)) %>
-<% end %>

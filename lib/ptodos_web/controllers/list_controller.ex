@@ -27,7 +27,10 @@ defmodule PtodosWeb.ListController do
 
   def show(conn, %{"id" => id}) do
     list = TodoLists.get_list!(id)
-    render(conn, "show.html", list: list)
+    todos = Ptodos.Todos.get_todos_by_list(id)
+    changeset = Ptodos.Todos.change_todo(%Ptodos.Todos.Todo{})
+
+    render(conn, "show.html", list: list, todos: todos, changeset: changeset, list_id: id)
   end
 
   def edit(conn, %{"id" => id}) do

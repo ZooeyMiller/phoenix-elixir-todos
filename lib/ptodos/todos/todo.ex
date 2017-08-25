@@ -15,7 +15,7 @@ defmodule Ptodos.Todos.Todo do
   @doc false
   def changeset(%Todo{} = todo, attrs) do
     todo
-    |> cast(attrs, [:title, :user_id, :finished])
-    |> validate_required([:title, :user_id])
+    |> cast(attrs, [:title, :user_id, :finished, :list_id])
+    |> validate_required([:title, :user_id, :list_id])
   end
 end
