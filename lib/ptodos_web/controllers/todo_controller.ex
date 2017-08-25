@@ -10,7 +10,7 @@ defmodule PtodosWeb.TodoController do
     render(conn, "index.html", todos: todos, changeset: changeset)
   end
 
-  def create(conn, %{"todo" => todo_params} = params) do
+  def create(conn, %{"todo" => todo_params}) do
     %{"list_id" => list_id} = todo_params
     case Todos.create_todo(todo_params, conn.assigns.user) do
       {:ok, _todo} ->

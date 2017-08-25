@@ -6,7 +6,7 @@ defmodule PtodosWeb.TodoApiView do
     %{data: render_one(todo, TodoApiView, "todo.json")}
   end
 
-  def render("error.json", params) do
+  def render("error.json", _params) do
     %{error: "hi"}
   end
 
