@@ -19,8 +19,8 @@ defmodule PtodosWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-
     resources "/todo", TodoController
+    resources "/lists", ListController
   end
 
   scope "/api", PtodosWeb do

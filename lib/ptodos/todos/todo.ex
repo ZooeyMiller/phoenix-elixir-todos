@@ -8,7 +8,7 @@ defmodule Ptodos.Todos.Todo do
     field :title, :string
     field :finished, :boolean, default: false
     belongs_to :user, Ptodos.Users.User
-
+    belongs_to :list, Ptodos.TodoLists.List
     timestamps()
   end
 
