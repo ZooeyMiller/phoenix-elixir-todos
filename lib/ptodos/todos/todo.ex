@@ -8,14 +8,14 @@ defmodule Ptodos.Todos.Todo do
     field :title, :string
     field :finished, :boolean, default: false
     belongs_to :user, Ptodos.Users.User
-
+    belongs_to :list, Ptodos.TodoLists.List
     timestamps()
   end
 
   @doc false
   def changeset(%Todo{} = todo, attrs) do
     todo
-    |> cast(attrs, [:title, :user_id, :finished])
-    |> validate_required([:title, :user_id])
+    |> cast(attrs, [:title, :user_id, :finished, :list_id])
+    |> validate_required([:title, :user_id, :list_id])
   end
 end

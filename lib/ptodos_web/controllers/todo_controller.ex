@@ -10,11 +10,12 @@ defmodule PtodosWeb.TodoController do
     render(conn, "index.html", todos: todos, changeset: changeset)
   end
 
-  def create(conn, %{"todo" => todo_params}) do
+  def create(conn, %{"todo" => todo_params} = params) do
+    %{"list_id" => list_id} = todo_params
     case Todos.create_todo(todo_params, conn.assigns.user) do
       {:ok, _todo} ->
         conn
-        |> redirect(to: todo_path(conn, :index))
+        |> redirect(to: list_path(conn, :show, list_id))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "index.html", changeset: changeset)
     end

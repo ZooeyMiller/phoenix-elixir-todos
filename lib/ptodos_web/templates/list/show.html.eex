@@ -1,11 +1,13 @@
+<h2>Show List</h2>
 
-<%= if @conn.assigns[:user] do %>
-    <%= link "Logout", to: auth_path(@conn, :signout) %>
-<% else %>
-    <%= link "Login with Github", to: auth_path(@conn, :request, "github") %>
-<% end %>
+<ul>
 
-<h2>Listing Todos</h2>
+  <li>
+    <strong>Title:</strong>
+    <%= @list.title %>
+  </li>
+
+</ul>
 
 <table class="table">
   <thead>
@@ -29,3 +31,11 @@
 <% end %>
   </tbody>
 </table>
+
+<%= if @conn.assigns.user do %>
+<%= render "add_todo_form.html", Map.put(assigns, :action, todo_path(@conn, :create)) %>
+<% end %>
+
+
+<span><%= link "Edit", to: list_path(@conn, :edit, @list) %></span>
+<span><%= link "Back", to: list_path(@conn, :index) %></span>

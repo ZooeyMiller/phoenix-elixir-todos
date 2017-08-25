@@ -76,8 +76,6 @@ defmodule Ptodos.Todos do
 
   """
   def update_todo(%Todo{} = todo, attrs) do
-    IO.inspect attrs
-
     todo
     |> Todo.changeset(attrs)
     |> Repo.update()
@@ -110,5 +108,9 @@ Returns an `%Ecto.Changeset{}` for tracking todo changes.
 """
 def change_todo(%Todo{} = todo) do
   Todo.changeset(todo, %{})
+end
+
+def get_todos_by_list(list_id) do
+  from(p in Todo, where: p.list_id == ^list_id) |> Repo.all
 end
 end
