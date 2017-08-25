@@ -21,6 +21,7 @@ defmodule PtodosWeb.Router do
     get "/", PageController, :index
     resources "/todo", TodoController
     resources "/lists", ListController
+    resources "/teams", TeamController
   end
 
   scope "/api", PtodosWeb do

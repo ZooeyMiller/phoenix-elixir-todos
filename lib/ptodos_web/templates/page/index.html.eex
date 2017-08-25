@@ -1,1 +1,54 @@
-<p>Hello world</p>
+<h2>Listing Lists</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for list <- @lists do %>
+    <tr>
+      <td><%= list.title %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: list_path(@conn, :show, list), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: list_path(@conn, :edit, list), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: list_path(@conn, :delete, list), method: :delete, class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New List", to: list_path(@conn, :new) %></span>
+
+
+<h2>Listing Teams</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for team <- @teams do %>
+    <tr>
+      <td><%= team.name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: team_path(@conn, :show, team), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: team_path(@conn, :edit, team), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: team_path(@conn, :delete, team), method: :delete, class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Team", to: team_path(@conn, :new) %></span>
