@@ -20,11 +20,11 @@ This is (will be) a todo app featuring:
 You will need to create a config.env file in the root of the project, inside you will need to put:
 
 ```
-export GITHUB_SECRET=<your secret key here>
-export GITHUB_CLIENT_ID=<your client id here>
+GITHUB_SECRET=<your secret key here>
+GITHUB_CLIENT_ID=<your client id here>
 ```
 
-then before you run the code for the first time run `source config.env` in your terminal, and you'll be good to go!
+Thanks to [Envy](https://github.com/BlakeWilliams/envy) these variables will then be loaded when you run the project with `mix phx.server`
 
 You'll need to generate your own client_id and client_secret on github.
 
