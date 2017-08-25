@@ -55,7 +55,7 @@ defmodule Ptodos.Todos do
     |> Repo.insert()
   end
 
-  
+
   def toggle_todo(id) do
     todo = get_todo!(id)
     %Ptodos.Todos.Todo{finished: finished} = todo
@@ -97,18 +97,5 @@ defmodule Ptodos.Todos do
   """
   def delete_todo(%Todo{} = todo) do
     Repo.delete(todo)
-  end
-
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking todo changes.
-
-  ## Examples
-
-      iex> change_todo(todo)
-      %Ecto.Changeset{source: %Todo{}}
-
-  """
-  def change_todo(%Todo{} = todo) do
-    Todo.changeset(todo, %{})
   end
 end

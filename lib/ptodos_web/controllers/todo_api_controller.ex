@@ -5,9 +5,7 @@ defmodule PtodosWeb.TodoApiController do
   alias Ptodos.Todos.Todo
 
   def toggle(conn, %{"id" => id}) do
-    %Ptodos.Todos.Todo{finished: finished} = todo = Todos.get_todo!(id)
-
-    case Todos.update_todo(todo, %{finished: !finished}) do
+    case Todos.toggle_todo(id) do
       {:ok, todo} ->
         render(conn, "toggle.json", %{state: todo.finished})
       {:error, _message} ->
